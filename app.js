@@ -4,6 +4,7 @@ const favicon = require('serve-favicon');
 const hbs = require('hbs');
 const logger = require('morgan');
 const Celebrity = require('./models/celebrity');
+const Movie = require('./models/movie');
 
 const app = express();
 
@@ -36,6 +37,8 @@ const baseRouter = require('./routes/');
 app.use('/', baseRouter);
 const celebRouter = require('./routes/celebrities');
 app.use('/', celebRouter);
+const movieRouter = require('./routes/movies');
+app.use('/', movieRouter);
 
 // Catch 404 and render a not-found.hbs template
 app.use((req, res, next) => {
